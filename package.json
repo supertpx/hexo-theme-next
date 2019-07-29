@@ -36,6 +36,6 @@
     "js-yaml": "^3.13.1",
     "jshint": "^2.10.2",
     "jshint-stylish": "^2.2.1",
-    "stylint": "^1.5.9"
+    "stylint": "^2.0.0"
   }
 }
