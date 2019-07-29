@@ -4,20 +4,18 @@
   right: auto;
   bottom: auto;
 
-  // Do NOT delete this line
-  // or Affix (position: fixed) will not work in Google Chrome.
-  -webkit-transform: none;
-
   a, span.exturl {
     color: $black-light;
 
-    &:hover { color: $black-deep; }
+    &:hover {
+      color: $black-deep;
+      border-bottom-color: $black-deep;
+    }
   }
-  span.exturl:hover { border-bottom-color: $black-deep; }
 }
 
 .sidebar-inner {
-//padding: 20px 10px 0;
+  //padding: 20px 10px 0;
   box-sizing: border-box;
   width: $sidebar-desktop;
   color: $text-color;
@@ -49,49 +47,21 @@
   padding: 0 10px;
 }
 
-.links-of-author-item {
-  a:before, span.exturl:before { display: none; }
-  a, span.exturl {
-    border-bottom: none;
-    text-decoration: underline;
-  }
-}
-
-.feed-link {
+.feed-link, .chat {
   border-top: 1px dotted $grey-light;
   border-bottom: 1px dotted $grey-light;
   text-align: center;
-}
+  a {
+    show();
+    color: $orange;
+    border: none !important;
 
-.feed-link a {
-  display: block;
-  color: $orange;
-  border: none;
+    &:hover {
+      background: none;
+      color: darken($orange, 20%);
 
-  &:hover {
-    background: none;
-    color: darken($orange, 20%);
-
-    i { color: darken($orange, 20%); }
-  }
-}
-
-.chat {
-  border-top: 1px dotted $grey-light;
-  border-bottom: 1px dotted $grey-light;
-  text-align: center;
-}
-
-.chat a {
-  display: block;
-  color: $orange;
-  border: none;
-
-  &:hover {
-    background: none;
-    color: darken($orange, 20%);
-
-    i { color: darken($orange, 20%); }
+      i { color: darken($orange, 20%); }
+    }
   }
 }
 
@@ -100,17 +70,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-  span.exturl {
-    font-size: 13px;
-  }
 }
+
 .links-of-author-item {
   sidebar-inline-links-item();
-
   a, span.exturl {
-    display: block;
+    show();
+    border-bottom: none;
     text-decoration: none;
+
+    &::before { display: none; }
 
     &:hover {
       border-radius: 4px;
@@ -120,9 +89,8 @@
 
   .fa {
     margin-right: 2px;
-    font-size: 16px;
+    font-size: $font-size-medium;
   }
-  .fa-globe { font-size: 15px; }
 }
 
 .links-of-blogroll {
